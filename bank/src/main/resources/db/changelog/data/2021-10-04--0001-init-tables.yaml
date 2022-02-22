@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2022-02-14--00010-data-client
+      author: nsnikolskiy
+      runOnChange: true
+      loadData:
+        primaryKey: id
+        file: data/2022-02-14--0001-data-client.csv
+        relativeToChangelogFile: true
+        separator: ;
+        quotChar: '"'
+        encoding: UTF-8
+        tableName: client
+
+  - changeSet:
+      id: 2022-02-14--00010-data-account
+      author: nsnikolskiy
+      runOnChange: true
+      loadData:
+        primaryKey: id
+        file: data/2022-02-14--0001-data-account.csv
+        relativeToChangelogFile: true
+        separator: ;
+        quotChar: '"'
+        encoding: UTF-8
+        tableName: account
