@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: config-server
+  security:
+    user:
+      name: root
+      password: root
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+        encrypt:
+          enabled: false
+server:
+  port: 8888
+encrypt:
+  key: distributed-transaction-broker-secret
