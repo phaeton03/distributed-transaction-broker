@@ -6,7 +6,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/db
     driverClassName: org.postgresql.Driver
     username: postgres
-    password: {cipher}8f5ae1e3c6e9fd68702b89d6c25295ee77c565fd8a601d8efc4353b6c46b5756
+    password: '{cipher}8f5ae1e3c6e9fd68702b89d6c25295ee77c565fd8a601d8efc4353b6c46b5756'
 
   output:
     ansi:
@@ -29,7 +29,7 @@ spring:
 logging:
   level:
     root:
-      ERROR
+      DEBUG
 
 management:
   endpoints:

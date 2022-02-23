@@ -15,8 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ScheduledTasks {
     private final TransactionService transactionService;
-
-    @Scheduled(fixedDelayString = "${schedule-task.transactions.fixedDelay.bank}")
+   @Scheduled(fixedDelayString = "${schedule-task.transactions.fixedDelay.bank}")
     public void scheduleCommitTransaction() {
         transactionService.calculateCommitTransactions();
     }

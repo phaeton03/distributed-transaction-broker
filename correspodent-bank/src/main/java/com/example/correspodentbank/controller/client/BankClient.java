@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-@FeignClient(value = "bank", url = "${client.bank.base-url}")
+@FeignClient(value = "bank")
 @RequestMapping("/bank")
 public interface BankClient {
 

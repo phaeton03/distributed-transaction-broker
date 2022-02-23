@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ru.otus.spring.bank.controller.dto.repsonse.AccountResponse;
 import ru.otus.spring.bank.controller.dto.repsonse.ClientResponse;
 
-@FeignClient(value = "financial-institution", url = "${client.financial-institution.base-url}")
+@FeignClient(value = "financial-institution")
 @RequestMapping("/financial-institution")
 public interface FinancialInstitutionClient {
 

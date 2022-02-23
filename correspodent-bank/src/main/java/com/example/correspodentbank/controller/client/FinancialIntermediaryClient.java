@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@FeignClient(value = "financial-institution", url = "${client.financial-institution.base-url}")
+@FeignClient(value = "financial-institution")
 @RequestMapping("/financial-institution/transaction")
 public interface FinancialIntermediaryClient {
 

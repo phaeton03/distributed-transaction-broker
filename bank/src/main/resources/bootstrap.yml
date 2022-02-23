@@ -7,6 +7,7 @@ spring:
       fail-fast: true
       password: root
       username: root
+      enabled: true
 
 encrypt:
   key: distributed-transaction-broker-secret
@@ -14,7 +15,7 @@ encrypt:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8002/eureka
+      defaultZone: http://localhost:8001/eureka
     register-with-eureka: true
     fetch-registry: true
   server:
