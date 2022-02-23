@@ -1,8 +1,7 @@
 package com.example.correspodentbank.service;
 
 import com.example.correspodentbank.controller.client.BankClient;
-import com.example.correspodentbank.controller.client.FinancialIntermediaryClient;
-import com.example.correspodentbank.controller.dto.request.TransactionRequest;
+import com.example.correspodentbank.controller.client.FinancialInstitutionClient;
 import com.example.correspodentbank.domain.Transaction;
 import com.example.correspodentbank.enums.Status;
 import com.example.correspodentbank.mapper.TransactionMapper;
@@ -16,7 +15,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 import static org.mockito.BDDMockito.*;
 import static org.assertj.core.api.Assertions.*;
@@ -71,7 +69,7 @@ class TransactionServiceImpTest {
     private BankClient bankClient;
 
     @Mock
-    private FinancialIntermediaryClient financialIntermediaryClient;
+    private FinancialInstitutionClient financialInstitutionClient;
 
     @Mock
     private TransactionMapper transactionMapper = new TransactionMapper();
@@ -100,7 +98,7 @@ class TransactionServiceImpTest {
         given(transactionRepository
                 .getAllByBankStatusAndFinancialInstitutionStatusIsNot(Status.SUCCESS, Status.SUCCESS))
                 .willReturn(transactions);
-        given(financialIntermediaryClient.existTransaction(any())).willReturn(false);
+        given(financialInstitutionClient.existTransaction(any())).willReturn(false);
         given(transactionRepository.saveAll(transactions)).willReturn(transactions);
 
         assertThat(transactionService.calculateSuccessBankTransactionsToFinancialInstitution())
@@ -117,7 +115,7 @@ class TransactionServiceImpTest {
         given(transactionRepository
                 .getAllByBankStatusAndFinancialInstitutionStatusIsNot(Status.SUCCESS, Status.SUCCESS))
                 .willReturn(transactions);
-        given(financialIntermediaryClient.existTransaction(any())).willReturn(true);
+        given(financialInstitutionClient.existTransaction(any())).willReturn(true);
 
         assertThat(transactionService.calculateSuccessBankTransactionsToFinancialInstitution())
                 .hasSize(3)

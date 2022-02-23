@@ -1,7 +1,7 @@
 package com.example.correspodentbank.service;
 
 import com.example.correspodentbank.controller.client.BankClient;
-import com.example.correspodentbank.controller.client.FinancialIntermediaryClient;
+import com.example.correspodentbank.controller.client.FinancialInstitutionClient;
 import com.example.correspodentbank.controller.dto.request.TransactionRequest;
 import com.example.correspodentbank.domain.Transaction;
 import com.example.correspodentbank.enums.Status;
@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class TransactionServiceImp implements TransactionService {
     private final TransactionRepository transactionRepository;
     private final BankClient bankClient;
-    private final FinancialIntermediaryClient financialIntermediaryClient;
+    private final FinancialInstitutionClient financialInstitutionClient;
     private final TransactionMapper transactionMapper;
 
     @Override
@@ -63,12 +63,12 @@ public class TransactionServiceImp implements TransactionService {
                 transactionRepository.getAllByBankStatusAndFinancialInstitutionStatusIsNot(Status.SUCCESS, Status.SUCCESS);
 
         final List<TransactionRequest> transactionRequests = successTransactions.stream()
-                .filter(t -> !financialIntermediaryClient.existTransaction(t.getTrackingNumber()))
+                .filter(t -> !financialInstitutionClient.existTransaction(t.getTrackingNumber()))
                 .map(transactionMapper::mapToFinancialInstituteTransactionRequest).collect(Collectors.toList());
 
         if (!transactionRequests.isEmpty()) {
 
-            financialIntermediaryClient.startTransaction(transactionRequests);
+            financialInstitutionClient.startTransaction(transactionRequests);
             successTransactions.forEach(transaction -> transaction.setFinancialInstitutionStatus(Status.SUCCESS));
 
             successTransactions = transactionRepository.saveAll(successTransactions);

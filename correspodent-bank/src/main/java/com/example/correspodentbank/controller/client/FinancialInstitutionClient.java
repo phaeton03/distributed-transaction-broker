@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @FeignClient(value = "financial-institution")
 @RequestMapping("/financial-institution/transaction")
-public interface FinancialIntermediaryClient {
+public interface FinancialInstitutionClient {
 
     @PostMapping("/")
     void startTransaction(List<TransactionRequest> transactionRequest);
