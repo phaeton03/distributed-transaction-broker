@@ -44,7 +44,7 @@ public class BankCorrespodentTransactionController {
     }
 
     @Audit(value = "Показать все транзакции в БК", type = JournalType.BANK_CORR)
-    @DeleteMapping("/transactions")
+    @GetMapping("/transactions")
     List<TransactionRequest> showTransactions() {
 
         return transactionService.showTransactions().stream().map(transactionMapper::mapToBankTransactionRequest).collect(Collectors.toList());

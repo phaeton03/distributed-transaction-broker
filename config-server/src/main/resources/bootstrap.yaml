@@ -9,8 +9,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/phaeton03/distributed-transaction-broker/config-repo
-          search-paths: {application}
+          uri: https://github.com/phaeton03/config-repo.git
+          default-label: main
+          label: main
         encrypt:
           enabled: false
 
@@ -18,7 +19,11 @@ server:
   port: 8888
 encrypt:
   key: distributed-transaction-broker-secret
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 #health:
 #  config:
 #    enabled: false
