@@ -1,0 +1,7 @@
+type;amount;client_id;is_block
+deposit;300.0;1;false
+deposit;500.0;1;false
+deposit;100.0;2;false
+deposit;1000.0;3;false
+deposit;1100.0;4;false
+deposit;1200.0;4;false

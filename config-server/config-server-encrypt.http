@@ -1,0 +1,11 @@
+POST http://localhost:8888/encrypt
+Content-Type: application/json
+
+{"name": "root"}
+
+###
+
+POST http://localhost:8888/decrypt
+Content-Type: application/json
+
+{"name": "f54b0e52ba4ee963951e70af118cbb827a4e7776ed78c60f5adb048292ae7e02"}

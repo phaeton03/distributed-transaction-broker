@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: bank
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
+      password: root
+      username: root
+      enabled: true
+
+encrypt:
+  key: distributed-transaction-broker-secret
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  server:
+    eviction-interval-timer-in-ms: 15000
+  instance:
+    leaseRenewalIntervalInSeconds: 30
+    leaseExpirationDurationInSeconds: 90
+    instance-id: ${spring.application.name}
+    prefer-ip-address: true
