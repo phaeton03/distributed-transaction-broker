@@ -23,8 +23,9 @@ server:
   port: 8765
 
 zuul:
+  prefix: /api
   routes:
-    bank: /**
+    bank: /bank/**
     financial-institution: /fin/**
     bank-correspodent: /corr/**
 

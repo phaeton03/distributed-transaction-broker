@@ -68,6 +68,7 @@ public class ClientServiceImp implements ClientService {
         transactionRequest.setAccountSenderId(accountIdSender);
         transactionRequest.setTrackingNumber(trackingNumber);
         accountService.checkAccounts(accountIdSender, transactionRequest.getAccountReceiverId(), transactionRequest.getAmount());
+        //ToDo
         correspodentBankClient.startTransaction(transactionRequest);
 
         transactionService.recordGlobalTransaction(TransactionType.DEBIT, transactionRequest.getAmount(),

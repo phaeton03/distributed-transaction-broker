@@ -31,6 +31,7 @@ public class LoggingAspect {
         Object object = joinPoint.proceed();
 
         String uri = request.getRequestURI() + '?' + request.getQueryString();
+
         Journal journal = new Journal(audit.value(), audit.type(), System.currentTimeMillis() - start, uri);
         log.info(journal.toString());
 
