@@ -10,9 +10,20 @@
 
     <packaging>pom</packaging>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.6.RELEASE</version>
+        <relativePath></relativePath>
+    </parent>
+
     <modules>
-        <module>user-activity-models</module>
-        <module>user-activity-emitter-microservice</module>
-        <module>user-activity-processor-microservice</module>
+        <module>bank</module>
+        <module>config-server</module>
+        <module>correspodent-bank</module>
+        <module>financial-institution</module>
+        <module>eureka-discovery-sever</module>
+        <module>zuul-service</module>
+        <module>auth</module>
     </modules>
 </project>

@@ -1,0 +1,13 @@
+#keycloak
+keycloak:
+  realm: datmt-test-realm
+  auth-server-url: http://localhost:18080/auth/
+  #use external in production
+  ssl-required: external
+  #name of the client
+  resource: spring-boot-client
+  # replace with your client's secret
+  credentials:
+    secret: c8aee6e0-956f-48ee-9626-76eef70bf51c
+  use-resource-role-mappings: true
+  bearer-only: true
